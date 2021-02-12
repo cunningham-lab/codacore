@@ -1,5 +1,5 @@
 
-# Here we implement the codaboost model
+# Here we implement the codacore model
 
 library(keras)
 
@@ -168,13 +168,13 @@ trainRelaxation.CoDaBaseLearner = function(cdbl) {
   
   .trainKeras = function(lr, epochs) {
     # define layer wrapper function
-    codaboostLayer <- function(object) {
+    codacoreLayer <- function(object) {
       create_layer(CustomLayer, object)
     }
     
     # use it in a model
     model <- keras::keras_model_sequential()
-    model %>% codaboostLayer()
+    model %>% codacoreLayer()
     
     # compile graph
     model %>% keras::compile(
@@ -361,9 +361,9 @@ predict.CoDaBaseLearner = function(cdbl, x, logits=T) {
 }
 
 
-#' CoDaBoost
+#' codacore
 #' 
-#' This function implements the CoDaBoost algorithm described in [DOI].
+#' This function implements the codacore algorithm described in [DOI].
 #' 
 #' @param x A data.frame of the compositional predictor variables.
 #' @param y A data.frame of the response variables.
@@ -389,7 +389,7 @@ predict.CoDaBaseLearner = function(cdbl, x, logits=T) {
 #'  during CV process).
 #' @param verbose A logical. Toggles whether to display intermediate steps.
 #' @param overlap
-codaboost <- function(
+codacore <- function(
   x,
   y,
   type,
@@ -434,7 +434,7 @@ codaboost <- function(
   }
   
   if (nrow(x) > 10000) {
-    warning("Large number of observations; codaboost could benefit from minibatching.")
+    warning("Large number of observations; codacore could benefit from minibatching.")
   }
   
   # Set up optimization parameters
@@ -474,7 +474,7 @@ codaboost <- function(
   cvParams = cvDefaults
   
   
-  ### Now we train CoDaBoost:
+  ### Now we train codacore:
   # Initialize from an empty ensemble
   ensemble = list()
   boostingOffset = y * 0.0
@@ -530,13 +530,13 @@ codaboost <- function(
     optParams=optParams,
     cvParams=cvParams
   )
-  class(cdb) = "codaboost"
+  class(cdb) = "codacore"
   
   return(cdb)
 }
 
 
-predict.codaboost = function(cdb, x, logits=T) {
+predict.codacore = function(cdb, x, logits=T) {
   x = .prepx(x)
   yHat = rep(0, nrow(x))
   for (cdbl in cdb$ensemble) {
@@ -550,7 +550,7 @@ predict.codaboost = function(cdb, x, logits=T) {
 }
 
 
-print.codaboost = function(cdb) {
+print.codacore = function(cdb) {
   # TODO: Make this into a table to print all at once
   cat("\nNumber of base learners found:", length(cdb$ensemble))
   for (i in 1:length(cdb$ensemble)) {
@@ -568,7 +568,7 @@ print.codaboost = function(cdb) {
 }
 
 
-plot.codaboost = function(cdb) {
+plot.codacore = function(cdb) {
   cols = c("black", "gray40", "gray60", "gray80")
   lwds = c(2.0, 1.5, 1.2, 0.8)
   plot(cdb$ensemble[[1]]$ROC)
@@ -586,7 +586,7 @@ plot.codaboost = function(cdb) {
 }
 
 
-activeInputs.codaboost = function(cdb) {
+activeInputs.codacore = function(cdb) {
   
   vars = c()
   

@@ -1,5 +1,5 @@
 
-source("code/codaboost.R")
+source("code/codacore.R")
 
 # Set seed to make our plots reproducible
 set.seed(1)
@@ -13,7 +13,7 @@ x <- Crohn[,-ncol(Crohn)]
 y <- Crohn[,ncol(Crohn)]
 
 # Run master AmalgamBoost...
-res <- codaboost(x, y, type = 'A', maxBaseLearners = 1, gamma = 1)
+res <- codacore(x, y, type = 'A', maxBaseLearners = 1, gamma = 1)
 ratios <- getLogRatios(res)
 boxplot(ratios[,1] ~ y)
 
@@ -33,7 +33,7 @@ all_res <- lapply(1:B, function(b){
   # index <- sample(1:nrow(x), .67*nrow(x))
   # x.boot <- x[index,]
   # y.boot <- y[index]
-  res <- codaboost(x.boot, y.boot, type = 'A', maxBaseLearners = 1, gamma = 1)
+  res <- codacore(x.boot, y.boot, type = 'A', maxBaseLearners = 1, gamma = 1)
 })
 
 # Summarize with table +1 for numerator, -1 for denominator
@@ -85,8 +85,8 @@ dim(Crohn)
 x <- Crohn[,-ncol(Crohn)]+1
 y <- Crohn[,ncol(Crohn)]
 
-# Run master codaboost
-res <- codaboost(x, y, type = 'B', maxBaseLearners = 1, gamma = 1)
+# Run master codacore
+res <- codacore(x, y, type = 'B', maxBaseLearners = 1, gamma = 1)
 res$X <- x
 res$y <- y
 #ratios <- getRatios(res)
@@ -108,7 +108,7 @@ all_res <- lapply(1:B, function(b){
   # index <- sample(1:nrow(x), .67*nrow(x))
   # x.boot <- x[index,]
   # y.boot <- y[index]
-  res <- codaboost(x.boot, y.boot, type = 'B', maxBaseLearners = 1, gamma = 1)
+  res <- codacore(x.boot, y.boot, type = 'B', maxBaseLearners = 1, gamma = 1)
   res$X <- x.boot
   res$y <- y.boot
   res

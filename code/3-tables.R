@@ -6,8 +6,8 @@ rawRes = read.csv('./out/quinn2020.csv')
 
 methods = c(
   # "rawLasso", 
-  "codaboostB1.0SE", 
-  "codaboostA1.0SE",
+  "codacoreB1.0SE", 
+  "codacoreA1.0SE",
   "selbal", 
   "PRA", 
   "codalasso",
@@ -88,16 +88,16 @@ for (var in show) {
 
 
 methods = list(
-  "codaboostB1.0SE"="\\textbf{CoDaCoRe - Balances (ours)}",
-  "codaboostA1.0SE"="CoDaCoRe - Amalgamations (ours)",
+  "codacoreB1.0SE"="\\textbf{CoDaCoRe - Balances (ours)}",
+  "codacoreA1.0SE"="CoDaCoRe - Amalgamations (ours)",
   "selbal"="selbal \\cite{rivera2018balances}", 
   "PRA"="Pairwise Log-ratios  \\cite{greenacre2019variable}",
-  # "codaboostB0.5SE"="CoDaCoRe-Balances (ours)",
-  # "codaboostA0.5SE"="CoDaCoRe-Amalgamations (ours)",
-  # "codaboostB1.0SE"="CoDaCoRe (Balance, 1-SE)",
-  # "codaboostB0.0SE"="CoDaCoRe (Balance, 0-SE)",
-  # "codaboostA1.0SE"="CoDaCoRe (Amalgamation, 1-SE)",
-  # "codaboostA0.0SE"="CoDaCoRe (Amalgamation, 0-SE)",
+  # "codacoreB0.5SE"="CoDaCoRe-Balances (ours)",
+  # "codacoreA0.5SE"="CoDaCoRe-Amalgamations (ours)",
+  # "codacoreB1.0SE"="CoDaCoRe (Balance, 1-SE)",
+  # "codacoreB0.0SE"="CoDaCoRe (Balance, 0-SE)",
+  # "codacoreA1.0SE"="CoDaCoRe (Amalgamation, 1-SE)",
+  # "codacoreA0.0SE"="CoDaCoRe (Amalgamation, 0-SE)",
   "rawLasso"="Lasso", 
   "codalasso"="Coda-lasso \\cite{lu2019generalized}",
   "amalgamSLR"="amalgam \\cite{quinn2020amalgams}",
@@ -121,7 +121,7 @@ cat("Then we generate main summary table for the main manuscript\n\n\n")
 for (i in 1:length(methods)) {
   # if (i == which(names(methods) == 'deepcoda')) {cat('\n \\midrule %\\midrule')}
   cat('\n')
-  # if (substr(names(methods)[i], 1, 10) == 'codaboostB') {
+  # if (substr(names(methods)[i], 1, 10) == 'codacoreB') {
   #   cat('\\textbf{', methods[[i]], '}')
   # } else {
     cat(methods[[i]])
@@ -163,9 +163,9 @@ for (i in 1:length(methods)) {
     
     # s = sprintf(s, fmt='%#.2f')
     cat(' & ')
-    bold = names(methods)[i] == 'codaboostB1.0SE'
-    # bold = names(methods)[i] == 'codaboostB0.0SE' & j %in% c('aucTe', 'accTe')
-    # bold = bold | (names(methods)[i] == 'codaboostB1.0SE' & j == 'activeVarsP')
+    bold = names(methods)[i] == 'codacoreB1.0SE'
+    # bold = names(methods)[i] == 'codacoreB0.0SE' & j %in% c('aucTe', 'accTe')
+    # bold = bold | (names(methods)[i] == 'codacoreB1.0SE' & j == 'activeVarsP')
     if (bold) {
       cat('\\textbf{', m, '}', sep='')
     } else{

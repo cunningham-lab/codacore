@@ -12,10 +12,10 @@ for i in "${dataIdx[@]}"; do
     sbatch code/jobR.sh "code/runAndSave.R --method=clrRF --seed=all --dataIdx=$i"
     sbatch code/jobR.sh "code/runAndSave.R --method=rawXGB --seed=all --dataIdx=$i"
     sbatch code/jobR.sh "code/runAndSave.R --method=clrXGB --seed=all --dataIdx=$i"
-    sbatch code/jobR.sh "code/runAndSave.R --method=codaboostA0.0SE --seed=all --dataIdx=$i"
-    sbatch code/jobR.sh "code/runAndSave.R --method=codaboostB0.0SE --seed=all --dataIdx=$i"
-    sbatch code/jobR.sh "code/runAndSave.R --method=codaboostA1.0SE --seed=all --dataIdx=$i"
-    sbatch code/jobR.sh "code/runAndSave.R --method=codaboostB1.0SE --seed=all --dataIdx=$i"
+    sbatch code/jobR.sh "code/runAndSave.R --method=codacoreA0.0SE --seed=all --dataIdx=$i"
+    sbatch code/jobR.sh "code/runAndSave.R --method=codacoreB0.0SE --seed=all --dataIdx=$i"
+    sbatch code/jobR.sh "code/runAndSave.R --method=codacoreA1.0SE --seed=all --dataIdx=$i"
+    sbatch code/jobR.sh "code/runAndSave.R --method=codacoreB1.0SE --seed=all --dataIdx=$i"
 done
 
 # Slow methods run in parallel

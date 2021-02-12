@@ -13,8 +13,8 @@ for s in "${seeds[@]}"; do
     sbatch code/jobR.sh "code/runAndSave.R --method=clrRF --seed=$s --dataIdx=26"
     sbatch code/jobR.sh "code/runAndSave.R --method=rawXGB --seed=$s --dataIdx=26"
     sbatch code/jobR.sh "code/runAndSave.R --method=clrXGB --seed=$s --dataIdx=26"
-    sbatch code/jobR.sh "code/runAndSave.R --method=codaboostA0.0SE --seed=$s --dataIdx=26"
-    sbatch code/jobR.sh "code/runAndSave.R --method=codaboostB0.0SE --seed=$s --dataIdx=26"
-    sbatch code/jobR.sh "code/runAndSave.R --method=codaboostA1.0SE --seed=$s --dataIdx=26"
-    sbatch code/jobR.sh "code/runAndSave.R --method=codaboostB1.0SE --seed=$s --dataIdx=26"
+    sbatch code/jobR.sh "code/runAndSave.R --method=codacoreA0.0SE --seed=$s --dataIdx=26"
+    sbatch code/jobR.sh "code/runAndSave.R --method=codacoreB0.0SE --seed=$s --dataIdx=26"
+    sbatch code/jobR.sh "code/runAndSave.R --method=codacoreA1.0SE --seed=$s --dataIdx=26"
+    sbatch code/jobR.sh "code/runAndSave.R --method=codacoreB1.0SE --seed=$s --dataIdx=26"
 done

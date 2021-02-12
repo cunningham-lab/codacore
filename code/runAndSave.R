@@ -52,8 +52,8 @@ runAndSave = function(x, y, method, seed, dataArg) {
   # xTe = x[!trainIdx,]
   # yTe = y[!trainIdx,]
   
-  if (substr(method, 1, 9) == 'codaboost') {
-    source("code/codaboost.R")
+  if (substr(method, 1, 9) == 'codacore') {
+    source("code/codacore.R")
     # Load up TF (should not be timed!)
     keras::k_zeros(0)
     # keras::use_session_with_seed(0) # breaks depending on version
@@ -63,12 +63,12 @@ runAndSave = function(x, y, method, seed, dataArg) {
 
     # run method
     startTime = Sys.time()
-    model = codaboost(xTr, yTr, type=type, gamma=gamma)
+    model = codacore(xTr, yTr, type=type, gamma=gamma)
     endTime = Sys.time()
     yHatTr = predict(model, xTr)
     yHatTe = predict(model, xTe)
     
-    activeVars = length(activeInputs.codaboost(model))
+    activeVars = length(activeInputs.codacore(model))
   }
   
   if (method %in% c('rawLasso', 'rawRidge', 'clrLasso', 'clrRidge')) {

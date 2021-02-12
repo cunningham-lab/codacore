@@ -36,7 +36,7 @@ yVar = 'runTime'
 methods = {
     'PRA': {'color': brown, 'legend': 'Pairwise LRs', 'marker': 'v'},
     'selbal': {'color': blue, 'legend': 'Selbal', 'marker': 's'},
-    'codaboostB0.5SE': {'color': purple, 'legend': 'CoDaCoRe (ours)', 'marker': 'o'},
+    'codacoreB0.5SE': {'color': purple, 'legend': 'CoDaCoRe (ours)', 'marker': 'o'},
     'codalasso': {'color': pink, 'legend': 'Coda-lasso', 'marker': 'P'},
     'amalgamSLR': {'color': orange, 'legend': 'Amalgam', 'marker': 'p'},
     # 'deepcodaSE': {'color': grey, 'legend': 'DeepCoDA', 'marker': 'D'},
@@ -50,7 +50,7 @@ legend_names = [methods[i]['legend'] for i in methods]
 #     'PRA': brown,
 #     'selbal': blue,
 #     'amalgamSLR': orange,
-#     'codaboostB0.0SE': purple,
+#     'codacoreB0.0SE': purple,
 # }
 
 

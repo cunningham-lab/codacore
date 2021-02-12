@@ -35,7 +35,7 @@ matplotlib.rc('font', **font)
 xVar = 'accTe'
 yVar = 'runTime'
 methods = {
-    'codaboostB1.0SE': {'color': purple, 'legend': 'CoDaCoRe (ours)', 'marker': 'o'},
+    'codacoreB1.0SE': {'color': purple, 'legend': 'CoDaCoRe (ours)', 'marker': 'o'},
     'selbal': {'color': blue, 'legend': 'Selbal', 'marker': 's'},
     'PRA': {'color': pink, 'legend': 'Pairwise log-ratios', 'marker': 'v'},
     'codalasso': {'color': orange, 'legend': 'Coda-lasso', 'marker': 'P'},
@@ -51,7 +51,7 @@ legend_names = [methods[i]['legend'] for i in methods]
 #     'PRA': brown,
 #     'selbal': blue,
 #     'amalgamSLR': orange,
-#     'codaboostB0.0SE': purple,
+#     'codacoreB0.0SE': purple,
 # }
 
 

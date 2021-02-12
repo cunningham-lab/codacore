@@ -34,8 +34,8 @@ rawRes$activeVars[rawRes$method=='clrLasso'] = rawRes$inputDim[rawRes$method=='c
 
 
 methods = list(
-  "codaboostB1.0SE"="CoDaCoRe",
-  # "codaboostA1.0SE"="CoDaCoRe-Amalgamations (ours)",
+  "codacoreB1.0SE"="CoDaCoRe",
+  # "codacoreA1.0SE"="CoDaCoRe-Amalgamations (ours)",
   "rawLasso"="Lasso", 
   "rawRF"="RF",
   "rawXGB"="XGBoost"
@@ -66,10 +66,10 @@ for (i in 1:length(methods)) {
 
     # s = sprintf(s, fmt='%#.2f')
     cat(' & ')
-    bold = names(methods)[i] == 'codaboostB1.0SE'
+    bold = names(methods)[i] == 'codacoreB1.0SE'
     bold = F
-    # bold = names(methods)[i] == 'codaboostB0.0SE' & j %in% c('aucTe', 'accTe')
-    # bold = bold | (names(methods)[i] == 'codaboostB1.0SE' & j == 'activeVarsP')
+    # bold = names(methods)[i] == 'codacoreB0.0SE' & j %in% c('aucTe', 'accTe')
+    # bold = bold | (names(methods)[i] == 'codacoreB1.0SE' & j == 'activeVarsP')
     # if (bold) {
     #   cat('\\textbf{', m, sep='')
     # } else{
