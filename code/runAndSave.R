@@ -20,7 +20,7 @@ dataIdx = opt$dataIdx
 nSim = opt$nSim
 kSim = opt$kSim
 
-source("./R/loadData.R")
+source("./code/loadData.R")
 
 runAndSave = function(x, y, method, seed, dataArg) {
   
@@ -53,7 +53,7 @@ runAndSave = function(x, y, method, seed, dataArg) {
   # yTe = y[!trainIdx,]
   
   if (substr(method, 1, 9) == 'codaboost') {
-    source("R/codaboost.R")
+    source("code/codaboost.R")
     # Load up TF (should not be timed!)
     keras::k_zeros(0)
     # keras::use_session_with_seed(0) # breaks depending on version
@@ -171,7 +171,7 @@ runAndSave = function(x, y, method, seed, dataArg) {
   }
   
   if (method == 'codalasso') {
-    source('./R/codalasso.R')
+    source('./code/codalasso.R')
     
     startTime = Sys.time()
     # xTr = as.matrix(xTr)
@@ -256,7 +256,7 @@ runAndSave = function(x, y, method, seed, dataArg) {
   
   
   if (substr(method, 1, 8) == 'deepcoda') {
-    source("R/deepcoda.R")
+    source("code/deepcoda.R")
     # Load up TF (should not be timed!)
     keras::k_zeros(0)
     # keras::use_session_with_seed(0) # breaks depending on version

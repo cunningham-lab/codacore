@@ -10,14 +10,9 @@
 ##SBATCH -o log.log
 ##SBATCH --exclude=t118
 
-source /moto/home/eg2912/.bashrc
 conda activate r-codacore
 
 sleep 1
-
-#cp -n /moto/stats/users/eg2912/miniconda3/envs/r-test2/lib/R/etc/ldpaths /moto/stats/users/eg2912/miniconda3/envs/r-amalgam/lib/R/etc/ldpaths
-
-sleep 1 # might help with spurious ldpaths error?
 
 date +%s
 echo $1

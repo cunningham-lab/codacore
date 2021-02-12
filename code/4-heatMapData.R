@@ -1,5 +1,5 @@
 
-source("R/codaboost.R")
+source("code/codaboost.R")
 
 # Set seed to make our plots reproducible
 set.seed(1)
