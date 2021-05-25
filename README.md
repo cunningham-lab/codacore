@@ -2,7 +2,7 @@
 
 This repo contains the code for reproducing the results from our paper: [Learning Sparse Log-Ratios For High-Throughput Sequencing Data](https://www.biorxiv.org/content/10.1101/2021.02.11.430695v1).
 
-If you are simply looking to use CoDaCoRe on your own dataset (or if you just want to download CoDaCoRe for any other reason), you should go directly to [py-codacore](https://github.com/egr95/py-codacore) (for python users) or [R-codacore](https://github.com/egr95/R-codacore) (for R users). 
+If you are simply looking to use CoDaCoRe on your own dataset (or if you just want to download CoDaCoRe for any other reason), you should go directly to [R-codacore](https://github.com/egr95/R-codacore) (for R users) or [py-codacore](https://github.com/egr95/py-codacore) (for python users). 
 
 ## Reproducibility:
 
