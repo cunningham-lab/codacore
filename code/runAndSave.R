@@ -277,6 +277,25 @@ runAndSave = function(x, y, method, seed, dataArg) {
     activeVars = numActiveVars.deepcoda(model)
   }
   
+  if (substr(method, 1, 13) == 'logratiolasso') {
+    
+    zTr = log(xTr)
+    mu = apply(zTr, 2, mean)
+    sigma = apply(zTr, 2, sd)
+    zTr = sweep(sweep(log(xTr), 2L, mu), 2, sigma, "/")
+    zTe = sweep(sweep(log(xTe), 2L, mu), 2, sigma, "/")
+    zTr = as.matrix(zTr)
+    zTe = as.matrix(zTe)
+
+    # run method
+    startTime = Sys.time()
+    model = logratiolasso::cv_two_stage(zTr, yTr, family="binomial")
+    endTime = Sys.time()
+    yHatTr = zTr %*% model$beta_min
+    yHatTe = zTe %*% model$beta_min
+    activeVars = sum(model$beta_min != 0)
+  }
+  
   # Compute metrics and store
   accBL = max(mean(yTr), 1 - mean(yTr)) # baseline accuracy
   
